@@ -10,19 +10,7 @@ public class Main {
         Map<Character, Integer> commonLetters = new HashMap<>();
         firstStringAsMap = selectLettersWithCountNumber(str);
         secondStringAsMap = selectLettersWithCountNumber(str2);
-
-/*        for (Map.Entry<Character,Integer> secondMapAsEntry : secondStringAsMap.entrySet()) {
-            for (Map.Entry<Character,Integer> firstMapAsEntry : firstStringAsMap.entrySet()) {
-                if (secondMapAsEntry.getKey().equals(firstMapAsEntry.getKey())) {
-                    if (secondMapAsEntry.getValue() < firstMapAsEntry.getValue()) {
-                        commonLetters.put(firstMapAsEntry.getKey(),secondMapAsEntry.getValue());
-                    }
-                    else {
-                        commonLetters.put(firstMapAsEntry.getKey(),secondMapAsEntry.getValue());
-                    }
-                }
-            }
-        }*/
+        
         for (Map.Entry<Character,Integer> secondMapAsEntry : secondStringAsMap.entrySet()) {
             if (firstStringAsMap.containsKey(secondMapAsEntry.getKey())) {
                 if (firstStringAsMap.get(secondMapAsEntry.getKey()) < secondMapAsEntry.getValue()) {
@@ -33,9 +21,6 @@ public class Main {
                 }
             }
         }
-
-        System.out.println(firstStringAsMap);
-        System.out.println(secondStringAsMap);
         System.out.println(commonLetters);
     }
 
