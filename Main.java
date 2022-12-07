@@ -11,7 +11,7 @@ public class Main {
         firstStringAsMap = selectLettersWithCountNumber(str);
         secondStringAsMap = selectLettersWithCountNumber(str2);
 
-        for (Map.Entry<Character,Integer> secondMapAsEntry : secondStringAsMap.entrySet()) {
+/*        for (Map.Entry<Character,Integer> secondMapAsEntry : secondStringAsMap.entrySet()) {
             for (Map.Entry<Character,Integer> firstMapAsEntry : firstStringAsMap.entrySet()) {
                 if (secondMapAsEntry.getKey().equals(firstMapAsEntry.getKey())) {
                     if (secondMapAsEntry.getValue() < firstMapAsEntry.getValue()) {
@@ -20,6 +20,16 @@ public class Main {
                     else {
                         commonLetters.put(firstMapAsEntry.getKey(),secondMapAsEntry.getValue());
                     }
+                }
+            }
+        }*/
+        for (Map.Entry<Character,Integer> secondMapAsEntry : secondStringAsMap.entrySet()) {
+            if (firstStringAsMap.containsKey(secondMapAsEntry.getKey())) {
+                if (firstStringAsMap.get(secondMapAsEntry.getKey()) < secondMapAsEntry.getValue()) {
+                    commonLetters.put(secondMapAsEntry.getKey(),firstStringAsMap.get(secondMapAsEntry.getKey()));
+                }
+                else {
+                    commonLetters.put(secondMapAsEntry.getKey(),secondMapAsEntry.getValue());
                 }
             }
         }
